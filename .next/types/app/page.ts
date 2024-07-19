@@ -1,4 +1,4 @@
-// File: C:\Users\OEM\Desktop\Next.js\01-starting-project\app\page.js
+// File: C:\Users\OEM\Desktop\Next.js\Routing-Page-Rendering-Next.js-Practice\app\page.js
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
