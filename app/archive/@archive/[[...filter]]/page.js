@@ -1,6 +1,7 @@
 import NewsList from '@/components/news-llist'
 import { getAvailableNewsMonths, getAvailableNewsYears, getNewsForYear, getNewsForYearAndMonth } from '@/lib/news'
 import Link from 'next/link'
+import FilterError from './error'
 
 export default function FilteredNewsPage({ params }) {
 	const filter = params.filter
@@ -25,6 +26,13 @@ export default function FilteredNewsPage({ params }) {
 
 	if (news && news.length > 0) {
 		newsContent = <NewsList news={news} />
+	}
+
+	if (
+		(selectedYear && !getAvailableNewsYears().includes(+selectedYear)) ||
+		(selectedMonth && !getAvailableNewsMonths(selectedYear).includes(+selectedMonth))
+	) {
+		throw new Error("Invalid path.")
 	}
 
 	return (
